@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .  # Path to the directory containing your Dockerfile
+    ports:
+      - "80:3000"  # Map port 80 on the host to port 3000 inside the container
+    volumes:
+      - .:/app  # Mount the current directory to /app inside the container for live development (optional)
+    environment:
+      - NODE_ENV=development  # Set the environment variable for the app (optional)
+    restart: always  # Automatically restart the container if it crashes
